@@ -1,0 +1,361 @@
+<!--
+    
+Welcome to Resupply / Portfolio #2 (Red)
+
+This is a very unique Portfolio template for your use!
+
+I have added instructions throughout the HTML code to
+help you with the process of changing anything you
+need. if you want us to change it for you, please
+cotnact us on discord!
+
+Head to https://discord.gg/resupplygg and open a ticket.
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <!-- Website Information / Discord Embed / Favicon -->
+
+    <title>Portfolio #2 | About</title>
+    <meta name="description" content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit minus asperiores expedita iste
+        omnis recusandae labore quidem consequuntur, optio, deleniti, consectetur cumque eum enim? Neque
+        velit expedita error architecto sed.">
+    <meta property="og:image" content="https://i.imgur.com/qKWcYN9.png">
+    <meta name="author" content="Portfolio #2">
+    <link rel="icon" href="images/Icon.png" type="image/x-icon">
+
+    <!-- Generic HTML Code -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<!-- Partial Website CSS Code -->
+
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    ::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #d6d6d6;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #3b3b3b;
+    }
+
+    body {
+        background-color: #111;
+    }
+
+    /* Modal styles */
+    .modal {
+        display: none;
+    }
+
+    .modal-content {
+        max-width: 90%;
+    }
+
+    /* Styles for @media only 700px and below */
+    @media only screen and (max-width: 700px) {
+        .nav-links {
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .contact-button {
+            margin-top: 1rem;
+        }
+
+        .modal-content {
+            width: 90%;
+            max-width: 90%;
+            padding: 1rem;
+        }
+    }
+</style>
+
+<section class="w-full p-12 pb-2 antialiased bg-center bg-cover" id="top">
+
+    <div class="container mx-auto max-w-9xl">
+        <div class="flex justify-between items-center px-24 py-2">
+            <nav class="nav-links flex gap-3 ml-auto">
+                <a href="index.html"
+                    class="nav-link inline-block px-6 py-2 font-bold uppercase text-white rounded-md transition duration-300 ease-in-out hover:bg-red-600">Home</a>
+                <a href="about.html"
+                    class="nav-link active inline-block px-6 py-2 font-bold uppercase text-white rounded-md transition duration-300 ease-in-out bg-red-600 hover:bg-red-700">About</a>
+                <a href="clients.html"
+                    class="nav-link inline-block px-6 py-2 font-bold uppercase text-white rounded-md transition duration-300 ease-in-out hover:bg-red-600">Clients</a>
+            </nav>
+            <div class="relative ml-32">
+                <a href="#contact"
+                    class="contact-button inline-block px-6 py-2 font-bold uppercase text-white rounded-md transition duration-300 ease-in-out bg-red-600 hover:bg-red-700">
+                    <i class="fas fa-envelope mr-2"></i> Contact
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="contactModal"
+        class="modal hidden fixed inset-0 bg-gray-900 bg-opacity-50 z-50 flex justify-center items-center">
+        <div class="modal-content bg-white rounded-lg p-8 max-w-lg">
+            <p class="mb-4 font-semibold text-xl">You can reach me at:</p>
+            <ul class="mb-4">
+                <li><strong class="font-semibold">Email:</strong> contact@example.com</li>
+                <li><strong class="font-semibold">Discord:</strong> gregmclaren</li>
+            </ul>
+            <button id="closeModalBtn"
+                class="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-md transition duration-300 ease-in-out uppercase font-semibold">Close</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const contactButton = document.querySelector('.contact-button');
+            const contactModal = document.getElementById('contactModal');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+
+            // Show modal when contact button is clicked
+            contactButton.addEventListener('click', function (e) {
+                e.preventDefault();
+                contactModal.classList.remove('hidden');
+            });
+
+            // Close modal when close button is clicked
+            closeModalBtn.addEventListener('click', function () {
+                contactModal.classList.add('hidden');
+            });
+
+            // Close modal when clicking outside of it
+            contactModal.addEventListener('click', function (e) {
+                if (e.target === contactModal) {
+                    contactModal.classList.add('hidden');
+                }
+            });
+
+            // Prevent modal from closing if clicked inside content area
+            contactModal.querySelector('.modal-content').addEventListener('click', function (e) {
+                e.stopPropagation();
+            });
+        });
+    </script>
+
+</section>
+
+<section class="relative text-center my-24">
+    <h1
+        class="text-[7rem] font-bold uppercase text-white/10 absolute inset-0 flex items-center justify-center z-0 select-none">
+        RESUME
+    </h1>
+    <h2 class="relative inline-block px-4 py-2 z-10 text-white text-[3rem] font-bold uppercase">About <span
+            class="text-red-600">Me</span></h2>
+</section>
+
+<section class="container mx-auto max-w-7xl px-8">
+    <div class="flex justify-between">
+
+        <div class="w-2/5 text-white space-y-6">
+            <div>
+                <h3 class="text-2xl font-bold mb-2 uppercase">Personal Info</h3>
+            </div>
+            <div class="grid grid-cols-2 gap-6">
+                <div>
+                    <ul class="space-y-5">
+                        <li class="text-stone-300">First Name: <span class="font-semibold text-white">Greg</span></li>
+                        <li class="text-stone-300">Last Name: <span class="font-semibold text-white">McLaren</span></li>
+                        <li class="text-stone-300">Age: <span class="font-semibold text-white">24</span></li>
+                        <li class="text-stone-300">Languages: <span class="font-semibold text-white">English,
+                                Spanish</span></li>
+                        <li class="text-stone-300">Freelance: <span class="font-semibold text-white">Available</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class="space-y-5">
+                        <li class="text-stone-300">Discord: <span class="font-semibold text-white">gregmclaren</span>
+                        </li>
+                        <li class="text-stone-300">Instagram: <span class="font-semibold text-white">gregmclaren</span>
+                        </li>
+                        <li class="text-stone-300">Twitter: <span class="font-semibold text-white">gregmclaren</span>
+                        </li>
+                        <li class="text-stone-300">LinkedIn: <span class="font-semibold text-white">gregmclaren</span>
+                        </li>
+                        <li class="text-stone-300">GitHub: <span class="font-semibold text-white">gregmclaren</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-1/2 grid grid-cols-2 gap-6">
+            <div class="p-6 rounded-lg text-center border border-white/10">
+                <p class="text-5xl font-bold text-red-600">3<span class="text-3xl">+</span></p>
+                <hr class="border-t border-white/10 my-2">
+                <p class="text-white text-xl uppercase">Years of Experience</p>
+            </div>
+            <div class="p-6 rounded-lg text-center border border-white/10">
+                <p class="text-5xl font-bold text-red-600">20<span class="text-3xl">+</span></p>
+                <hr class="border-t border-white/10 my-2">
+                <p class="text-white text-xl uppercase">Completed Projects</p>
+            </div>
+            <div class="p-6 rounded-lg text-center border border-white/10">
+                <p class="text-5xl font-bold text-red-600">30<span class="text-3xl">+</span></p>
+                <hr class="border-t border-white/10 my-2">
+                <p class="text-white text-xl uppercase">Happy Customers</p>
+            </div>
+            <div class="p-6 rounded-lg text-center border border-white/10">
+                <p class="text-5xl font-bold text-red-600">2<span class="text-3xl">+</span></p>
+                <hr class="border-t border-white/10 my-2">
+                <p class="text-white text-xl uppercase">Awards Won</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="relative text-center mt-20 mb-10">
+    <div class="w-full flex justify-center">
+        <div class="w-96 border-t-2 border-white/10"></div>
+    </div>
+    <h2 class="relative inline-block text-white text-[2rem] font-bold uppercase mt-12">My Skills</h2>
+</section>
+
+<section class="container mx-auto max-w-7xl px-8 mb-24">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="p-6 rounded-lg text-center border border-white/10">
+            <i class="fas fa-code text-red-600 text-5xl mb-4"></i>
+            <h3 class="text-2xl font-bold text-white uppercase">Web Development</h3>
+            <p class="text-stone-300 mt-4">HTML, CSS, JavaScript, React, Tailwind CSS</p>
+        </div>
+        <div class="p-6 rounded-lg text-center border border-white/10">
+            <i class="fas fa-database text-red-600 text-5xl mb-4"></i>
+            <h3 class="text-2xl font-bold text-white uppercase">Database Management</h3>
+            <p class="text-stone-300 mt-4">SQL, NoSQL, MongoDB, Firebase</p>
+        </div>
+        <div class="p-6 rounded-lg text-center border border-white/10">
+            <i class="fas fa-paint-brush text-red-600 text-5xl mb-4"></i>
+            <h3 class="text-2xl font-bold text-white uppercase">Graphic Design</h3>
+            <p class="text-stone-300 mt-4">Adobe Photoshop, Illustrator, Figma</p>
+        </div>
+        <div class="p-6 rounded-lg text-center border border-white/10">
+            <i class="fas fa-server text-red-600 text-5xl mb-4"></i>
+            <h3 class="text-2xl font-bold text-white uppercase">Server Management</h3>
+            <p class="text-stone-300 mt-4">Linux, Nginx, Docker, Kubernetes</p>
+        </div>
+        <div class="p-6 rounded-lg text-center border border-white/10">
+            <i class="fas fa-mobile-alt text-red-600 text-5xl mb-4"></i>
+            <h3 class="text-2xl font-bold text-white uppercase">Mobile Development</h3>
+            <p class="text-stone-300 mt-4">Flutter, React Native, Swift, Kotlin</p>
+        </div>
+        <div class="p-6 rounded-lg text-center border border-white/10">
+            <i class="fas fa-search text-red-600 text-5xl mb-4"></i>
+            <h3 class="text-2xl font-bold text-white uppercase">SEO & Marketing</h3>
+            <p class="text-stone-300 mt-4">Google Analytics, SEMrush, Ahrefs</p>
+        </div>
+    </div>
+</section>
+
+<section class="relative text-center mt-20 mb-10">
+    <div class="w-full flex justify-center">
+        <div class="w-96 border-t-2 border-white/10"></div>
+    </div>
+    <h2 class="relative inline-block px-4 py-2 z-10 text-white text-[2rem] font-bold uppercase mt-4">Experience</h2>
+</section>
+
+<section class="container mx-auto max-w-7xl px-8 mb-24">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Experience -->
+        <div>
+            <div class="flex items-start mb-8">
+                <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center w-12 h-12 bg-red-600 rounded-full">
+                        <i class="fas fa-briefcase text-white text-xl"></i>
+                    </div>
+                </div>
+                <div class="ml-4">
+                    <span class="text-gray-400 text-sm">2022 - Present</span>
+                    <h3 class="text-xl font-bold text-white">Fullstack Developer <span class="text-red-600">—
+                            Google</span></h3>
+                    <p class="text-stone-300">Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore
+                        adipisicing elit,</p>
+                </div>
+            </div>
+
+            <div class="flex items-start mb-8">
+                <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center w-12 h-12 bg-red-600 rounded-full">
+                        <i class="fas fa-briefcase text-white text-xl"></i>
+                    </div>
+                </div>
+                <div class="ml-4">
+                    <span class="text-gray-400 text-sm">2019 - 2022</span>
+                    <h3 class="text-xl font-bold text-white">Head of Analytics <span class="text-red-600">— Meta
+                            Facebook</span></h3>
+                    <p class="text-stone-300">Lorem incididunt dolor sit amet, consectetur eiusmod dunt dolund dol elit,
+                        tempor incididunt</p>
+                </div>
+            </div>
+
+            <div class="flex items-start mb-8">
+                <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center w-12 h-12 bg-red-600 rounded-full">
+                        <i class="fas fa-briefcase text-white text-xl"></i>
+                    </div>
+                </div>
+                <div class="ml-4">
+                    <span class="text-gray-400 text-sm">2016 - 2018</span>
+                    <h3 class="text-xl font-bold text-white">Marketing <span class="text-red-600">— OBS Studios</span>
+                    </h3>
+                    <p class="text-stone-300">Lorem ipsum dolor sit amet, tempor incididunt ut laboreconsectetur elit,
+                        sed do eiusmod tempor duntt</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education 2 -->
+        <div>
+            <div class="flex items-start mb-8">
+                <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center w-12 h-12 bg-red-600 rounded-full">
+                        <i class="fas fa-briefcase text-white text-xl"></i>
+                    </div>
+                </div>
+                <div class="ml-4">
+                    <span class="text-gray-400 text-sm">2013 - 2016</span>
+                    <h3 class="text-xl font-bold text-white">Graphics Design <span class="text-red-600">—
+                            YouTube</span></h3>
+                    <p class="text-stone-300">Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore
+                        adipisicing elit,</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+</html>

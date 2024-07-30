@@ -1,0 +1,10 @@
+Hello %%__USERNAME__%%,
+
+Thank you for downloading Resupply - Unique Portfolio
+
+If you need any support, feel free to contact us at disord.gg/resupplygg
+
+Resource:
+%%__BUILTBYBIT__%%
+%%__RESOURCE__%%
+%%__VERSION__%%

@@ -1,0 +1,288 @@
+<!--
+    
+Welcome to Resupply / Portfolio #2 (Red)
+
+This is a very unique Portfolio template for your use!
+
+I have added instructions throughout the HTML code to
+help you with the process of changing anything you
+need. if you want us to change it for you, please
+cotnact us on discord!
+
+Head to https://discord.gg/resupplygg and open a ticket.
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <!-- Website Information / Discord Embed / Favicon -->
+
+    <title>Portfolio #2 | Clients</title>
+    <meta name="description" content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit minus asperiores expedita iste
+        omnis recusandae labore quidem consequuntur, optio, deleniti, consectetur cumque eum enim? Neque
+        velit expedita error architecto sed.">
+    <meta property="og:image" content="https://i.imgur.com/qKWcYN9.png">
+    <meta name="author" content="Portfolio #2">
+    <link rel="icon" href="images/Icon.png" type="image/x-icon">
+
+    <!-- Generic HTML Code -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<!-- Partial Website CSS Code -->
+
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    ::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #d6d6d6;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #3b3b3b;
+    }
+
+    body {
+        background-color: #111;
+    }
+
+    /* Modal styles */
+    .modal {
+        display: none;
+    }
+
+    .modal-content {
+        max-width: 90%;
+    }
+    
+    /* Styles for @media only 700px and below */
+    @media only screen and (max-width: 700px) {
+        .nav-links {
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .contact-button {
+            margin-top: 1rem;
+        }
+
+        .modal-content {
+            width: 90%;
+            max-width: 90%;
+            padding: 1rem;
+        }
+    }
+</style>
+
+<section class="w-full p-12 pb-2 antialiased bg-center bg-cover" id="top">
+
+    <div class="container mx-auto max-w-9xl">
+        <div class="flex justify-between items-center px-24 py-2">
+            <nav class="nav-links flex gap-3 ml-auto">
+                <a href="index.html"
+                    class="nav-link inline-block px-6 py-2 font-bold uppercase text-white rounded-md transition duration-300 ease-in-out hover:bg-red-600">Home</a>
+                <a href="about.html"
+                    class="nav-link inline-block px-6 py-2 font-bold uppercase text-white rounded-md transition duration-300 ease-in-out hover:bg-red-600">About</a>
+                <a href="clients.html"
+                    class="nav-link active inline-block px-6 py-2 font-bold uppercase text-white rounded-md transition duration-300 ease-in-out bg-red-600 hover:bg-red-700">Clients</a>
+            </nav>
+            <div class="relative ml-32">
+                <a href="#contact"
+                    class="contact-button inline-block px-6 py-2 font-bold uppercase text-white rounded-md transition duration-300 ease-in-out bg-red-600 hover:bg-red-700">
+                    <i class="fas fa-envelope mr-2"></i> Contact
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="contactModal"
+        class="modal hidden fixed inset-0 bg-gray-900 bg-opacity-50 z-50 flex justify-center items-center">
+        <div class="modal-content bg-white rounded-lg p-8 max-w-lg">
+            <p class="mb-4 font-semibold text-xl">You can reach me at:</p>
+            <ul class="mb-4">
+                <li><strong class="font-semibold">Email:</strong> contact@example.com</li>
+                <li><strong class="font-semibold">Discord:</strong> gregmclaren</li>
+            </ul>
+            <button id="closeModalBtn"
+                class="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-md transition duration-300 ease-in-out uppercase font-semibold">Close</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const contactButton = document.querySelector('.contact-button');
+            const contactModal = document.getElementById('contactModal');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+
+            // Show modal when contact button is clicked
+            contactButton.addEventListener('click', function (e) {
+                e.preventDefault();
+                contactModal.classList.remove('hidden');
+            });
+
+            // Close modal when close button is clicked
+            closeModalBtn.addEventListener('click', function () {
+                contactModal.classList.add('hidden');
+            });
+
+            // Close modal when clicking outside of it
+            contactModal.addEventListener('click', function (e) {
+                if (e.target === contactModal) {
+                    contactModal.classList.add('hidden');
+                }
+            });
+
+            // Prevent modal from closing if clicked inside content area
+            contactModal.querySelector('.modal-content').addEventListener('click', function (e) {
+                e.stopPropagation();
+            });
+        });
+    </script>
+
+</section>
+
+<section class="relative text-center my-24">
+    <h1
+        class="text-[7rem] font-bold uppercase text-white/10 absolute inset-0 flex items-center justify-center z-0 select-none">
+        PORTFOLIO
+    </h1>
+    <h2 class="relative inline-block px-4 py-2 z-10 text-white text-[3rem] font-bold uppercase">My <span
+            class="text-red-600">Clients</span></h2>
+</section>
+
+<section class="px-12 py-12">
+    <div class="container mx-auto">
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <!-- Client 1 -->
+            <div class="flex justify-center items-center bg-stone-900 p-4 rounded-lg shadow-lg aspect-w-1 aspect-h-1">
+                <img src="images/Google.png" alt="Client 1" class="object-contain w-full h-full">
+            </div>
+
+            <!-- Client 2 -->
+            <div class="flex justify-center items-center bg-stone-900 p-4 rounded-lg shadow-lg aspect-w-1 aspect-h-1">
+                <img src="images/YouTube.png" alt="Client 2" class="object-contain w-full h-full">
+            </div>
+
+            <!-- Client 3 -->
+            <div class="flex justify-center items-center bg-stone-900 p-4 rounded-lg shadow-lg aspect-w-1 aspect-h-1">
+                <img src="images/Meta.png" alt="Client 3" class="object-contain w-full h-full">
+            </div>
+
+            <!-- Client 4 -->
+            <div class="flex justify-center items-center bg-stone-900 p-4 rounded-lg shadow-lg aspect-w-1 aspect-h-1">
+                <img src="images/OBS.png" alt="Client 4" class="object-contain w-full h-full">
+            </div>
+            <!-- Client 5.... -->
+        </div>
+    </div>
+</section>
+
+<section class="relative text-center mt-20 mb-10">
+    <div class="w-full flex justify-center">
+        <div class="w-96 border-t-2 border-white/10"></div>
+    </div>
+    <h2 class="relative inline-block px-4 py-2 z-10 text-white text-[2rem] font-bold uppercase mt-4">Reviews</h2>
+</section>
+
+<section class="px-12 mt-2 mb-32">
+    <div class="container mx-auto">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <!-- Testimonial 1 -->
+            <div class="flex flex-col bg-stone-900 p-8 rounded-lg shadow-lg">
+                <div class="flex items-center mb-4">
+                    <img src="images/guy-ceo.png" alt="Client Avatar" class="w-12 h-12 object-cover rounded-full">
+                    <div class="ml-4">
+                        <h3 class="text-lg font-semibold text-red-600">John Doe</h3>
+                        <p class="text-sm text-white">CTO, Meta Facebook</p>
+                    </div>
+                </div>
+                <p class="text-base text-white mb-6">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+                    ac
+                    nisi vel
+                    lorem condimentum finibus."</p>
+                <div class="flex items-center">
+                    <i class="fas fa-star text-yellow-500"></i>
+                    <i class="fas fa-star text-yellow-500"></i>
+                    <i class="fas fa-star text-yellow-500"></i>
+                    <i class="fas fa-star text-yellow-500"></i>
+                    <i class="fas fa-star-half-alt text-yellow-500"></i>
+                </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="flex flex-col bg-stone-900 p-8 rounded-lg shadow-lg">
+                <div class="flex items-center mb-4">
+                    <img src="images/girl-ceo.png" alt="Client Avatar" class="w-12 h-12 object-cover rounded-full">
+                    <div class="ml-4">
+                        <h3 class="text-lg font-semibold text-red-600">Jane Smith</h3>
+                        <p class="text-sm text-white">Designer, OBS Studios</p>
+                    </div>
+                </div>
+                <p class="text-base text-white mb-6">"Nullam tempor est ut risus feugiat, nec aliquet magna
+                    tristique.
+                    Integer sodales tellus sit amet dui ultrices."</p>
+                <div class="flex items-center">
+                    <i class="fas fa-star text-yellow-500"></i>
+                    <i class="fas fa-star text-yellow-500"></i>
+                    <i class="fas fa-star text-yellow-500"></i>
+                    <i class="fas fa-star text-yellow-500"></i>
+                    <i class="far fa-star text-yellow-500"></i>
+                </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="flex flex-col bg-stone-900 p-8 rounded-lg shadow-lg">
+                <div class="flex items-center mb-4">
+                    <img src="images/guy-ceo-2.png" alt="Client Avatar" class="w-12 h-12 object-cover rounded-full">
+                    <div class="ml-4">
+                        <h3 class="text-lg font-semibold text-red-600">Bob Johnson</h3>
+                        <p class="text-sm text-white">Marketing Manager, Google</p>
+                    </div>
+                </div>
+                <p class="text-base text-white mb-6">"Fusce lacinia ipsum id consequat luctus. Proin molestie
+                    velit
+                    non
+                    mi
+                    tincidunt, vitae ultrices nisi posuere."</p>
+                <div class="flex items-center">
+                    <i class="fas fa-star text-yellow-500"></i>
+                    <i class="fas fa-star text-yellow-500"></i>
+                    <i class="fas fa-star text-yellow-500"></i>
+                    <i class="fas fa-star text-yellow-500"></i>
+                    <i class="fas fa-star text-yellow-500"></i>
+                </div>
+            </div>
+            <!-- Testimonial 4.... -->
+        </div>
+    </div>
+</section>
+
+</html>

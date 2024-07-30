@@ -56,7 +56,7 @@ sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img',{delay: 400
 sr.reveal('.home__social-icon',{ interval: 200}); 
 sr.reveal('.skills__data, .work__img, .contact__input',{interval: 200}); 
 
-/*===== REVIEW SYSTEM =====*/
+/*===== REVIEW FORM FUNCTIONALITY =====*/
 document.addEventListener('DOMContentLoaded', () => {
     const reviewForm = document.getElementById('reviewForm');
     const reviewsList = document.getElementById('reviewsList');
@@ -97,12 +97,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const reviewRating = document.createElement('p');
         reviewRating.className = 'review__rating';
-        reviewRating.textContent = `Rating: ${rating} Star${rating > 1 ? 's' : ''}`;
+        reviewRating.innerHTML = 'Rating: ' + getStars(rating);
 
         reviewItem.appendChild(reviewName);
         reviewItem.appendChild(reviewText);
         reviewItem.appendChild(reviewRating);
 
-        reviewsList.appendChild(reviewItem);
+        reviewsList.insertBefore(reviewItem, reviewsList.firstChild);
+    }
+
+    function getStars(rating) {
+        let stars = '';
+        for (let i = 0; i < rating; i++) {
+            stars += '★';
+        }
+        for (let i = rating; i < 5; i++) {
+            stars += '☆';
+        }
+        return stars;
     }
 });
+
+/*===== ADMIN PANEL PROTECTION =====*/
+if (window.location.pathname.includes('adminpanel')) {
+    const username = prompt('Enter Username:');
+    const password = prompt('Enter Password:');
+    if (username !== 'corbin' || password !== 'Corbinjames$11') {
+        alert('Access Denied');
+        window.location.href = '/';
+    }
+}

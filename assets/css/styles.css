@@ -103,13 +103,13 @@ img {
 
 /* Center content horizontally */
 .bd-grid, .home__data, .about__container, .skills__container, .work__container, .reviews__container, .contact__container {
-    justify-content: center;
-    text-align: center;
+  justify-content: center;
+  text-align: center;
 }
 
 /* Align content to the center */
 .bd-grid, .home__data, .about__container, .skills__container, .work__container, .reviews__container, .contact__container {
-    align-items: center;
+  align-items: center;
 }
 
 /* Remove grid gaps */

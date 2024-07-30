@@ -1,24 +1,45 @@
 /*===== GOOGLE FONTS =====*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
-/*===== VARIABLES CSS =====*/
 :root {
-    --header-height: 3rem;
-    --font-semi: 600;
-    --hue-color: 224;
-    --first-color: hsl(var(--hue-color), 89%, 60%);
-    --second-color: hsl(var(--hue-color), 56%, 12%);
-    --body-font: "Poppins", sans-serif;
-    --big-font-size: 2rem;
-    --h2-font-size: 1.25rem;
-    --normal-font-size: .938rem;
-    --smaller-font-size: .75rem;
-    --mb-2: 1rem;
-    --mb-4: 2rem;
-    --mb-5: 2.5rem;
-    --mb-6: 3rem;
-    --z-back: -10;
-    --z-fixed: 100;
+  --hue-color: 260; /* Change to purple */
+  --background-color: #121212; /* Dark background color */
+  --text-color: #ffffff; /* Light text color for contrast */
+  --first-color: hsl(var(--hue-color), 89%, 60%);
+  --second-color: hsl(var(--hue-color), 56%, 12%);
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Update other elements to match the new color scheme */
+.nav__menu,
+.footer,
+.contact__input,
+.review__input {
+  background-color: var(--second-color);
+  color: var(--text-color);
+}
+
+/* Update elements with the first color */
+.home__title-color,
+.nav__link:hover::after,
+.active-link::after,
+.button,
+.review__button,
+.review__rating,
+.skills__icon,
+.footer__icon,
+.section-title::after {
+  background-color: var(--first-color);
+  color: var(--first-color);
+}
+
+/* Adjustments for the SVG color */
+.home__blob {
+  fill: var(--first-color);
 }
 
 @media screen and (min-width: 968px) {
@@ -102,9 +123,16 @@ img {
 }
 
 /* Center content horizontally */
-.bd-grid, .home__data, .about__container, .skills__container, .work__container, .reviews__container, .contact__container {
-  justify-content: center;
-  text-align: center;
+.bd-grid,
+.home__data,
+.about__container,
+.skills__container,
+.work__container,
+.reviews__container,
+.contact__container {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
 }
 
 /* Align content to the center */
@@ -113,9 +141,16 @@ img {
 }
 
 /* Remove grid gaps */
-.bd-grid, .home__data, .about__container, .skills__container, .work__container, .reviews__container, .contact__container {
+.bd-grid,
+.home__data,
+.about__container,
+.skills__container,
+.work__container,
+.reviews__container,
+.contact__container {
     gap: 0;
 }
+
 
 .l-header {
     width: 100%;

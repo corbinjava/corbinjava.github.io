@@ -193,3 +193,65 @@
     <script src="assets/js/main.js"></script>
 </body>
 </html>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const reviewForm = document.getElementById('reviewForm');
+        const reviewsList = document.getElementById('reviewsList');
+        let submitButton = reviewForm.querySelector('button[type="submit"]');
+        submitButton.disabled = false;
+    
+        reviewForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const name = document.getElementById('reviewerName').value.trim();
+            const reason = document.getElementById('reviewReason').value.trim();
+            const rating = document.getElementById('reviewRating').value;
+    
+            if (!name || !reason || !rating) {
+                alert('Please fill out all fields.');
+                return;
+            }
+    
+            addReview(name, reason, rating);
+            reviewForm.reset();
+    
+            submitButton.disabled = true;
+            setTimeout(() => {
+                submitButton.disabled = false;
+            }, 30000); // 30 seconds cooldown
+        });
+    
+        function addReview(name, reason, rating) {
+            const reviewItem = document.createElement('div');
+            reviewItem.className = 'review__item';
+    
+            const reviewName = document.createElement('p');
+            reviewName.className = 'review__name';
+            reviewName.textContent = name;
+    
+            const reviewText = document.createElement('p');
+            reviewText.className = 'review__text';
+            reviewText.textContent = reason;
+    
+            const reviewRating = document.createElement('p');
+            reviewRating.className = 'review__rating';
+            reviewRating.innerHTML = 'Rating: ' + getStars(rating);
+    
+            reviewItem.appendChild(reviewName);
+            reviewItem.appendChild(reviewText);
+            reviewItem.appendChild(reviewRating);
+    
+            reviewsList.insertBefore(reviewItem, reviewsList.firstChild);
+        }
+    
+        function getStars(rating) {
+            let stars = '';
+            for (let i = 0; i < rating; i++) {
+                stars += '★';
+            }
+            for (let i = rating; i < 5; i++) {
+                stars += '☆';
+            }
+            return stars;
+        }
+    });
+    </script>    

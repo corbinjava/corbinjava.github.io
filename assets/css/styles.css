@@ -401,3 +401,8 @@ img {
   color: var(--first-color);
 }
 
+.review__stars {
+  color: var(--first-color);
+}
+
+

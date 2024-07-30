@@ -55,3 +55,54 @@ sr.reveal('.home__data, .about__img, .skills__subtitle, .skills__text',{});
 sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img',{delay: 400}); 
 sr.reveal('.home__social-icon',{ interval: 200}); 
 sr.reveal('.skills__data, .work__img, .contact__input',{interval: 200}); 
+
+/*===== REVIEW SYSTEM =====*/
+document.addEventListener('DOMContentLoaded', () => {
+    const reviewForm = document.getElementById('reviewForm');
+    const reviewsList = document.getElementById('reviewsList');
+    let submitButton = reviewForm.querySelector('button[type="submit"]');
+    submitButton.disabled = false;
+
+    reviewForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const name = document.getElementById('reviewerName').value.trim();
+        const reason = document.getElementById('reviewReason').value.trim();
+        const rating = document.getElementById('reviewRating').value;
+
+        if (!name || !reason || !rating) {
+            alert('Please fill out all fields.');
+            return;
+        }
+
+        addReview(name, reason, rating);
+        reviewForm.reset();
+
+        submitButton.disabled = true;
+        setTimeout(() => {
+            submitButton.disabled = false;
+        }, 30000); // 30 seconds cooldown
+    });
+
+    function addReview(name, reason, rating) {
+        const reviewItem = document.createElement('div');
+        reviewItem.className = 'review__item';
+
+        const reviewName = document.createElement('p');
+        reviewName.className = 'review__name';
+        reviewName.textContent = name;
+
+        const reviewText = document.createElement('p');
+        reviewText.className = 'review__text';
+        reviewText.textContent = reason;
+
+        const reviewRating = document.createElement('p');
+        reviewRating.className = 'review__rating';
+        reviewRating.textContent = `Rating: ${rating} Star${rating > 1 ? 's' : ''}`;
+
+        reviewItem.appendChild(reviewName);
+        reviewItem.appendChild(reviewText);
+        reviewItem.appendChild(reviewRating);
+
+        reviewsList.appendChild(reviewItem);
+    }
+});
